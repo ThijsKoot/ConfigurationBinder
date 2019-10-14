@@ -1,0 +1,8 @@
+C:\Users\Thijs Koot\Documents\Projecten\ConfigurationBinder\src\ConfigurationBinder\obj\Debug\netcoreapp2.1\ConfigurationBinder.csprojAssemblyReference.cache
+C:\Users\Thijs Koot\Documents\Projecten\ConfigurationBinder\src\ConfigurationBinder\obj\Debug\netcoreapp2.1\ConfigurationBinder.AssemblyInfoInputs.cache
+C:\Users\Thijs Koot\Documents\Projecten\ConfigurationBinder\src\ConfigurationBinder\obj\Debug\netcoreapp2.1\ConfigurationBinder.AssemblyInfo.cs
+C:\Users\Thijs Koot\Documents\Projecten\ConfigurationBinder\src\ConfigurationBinder\bin\Debug\netcoreapp2.1\ConfigurationBinder.deps.json
+C:\Users\Thijs Koot\Documents\Projecten\ConfigurationBinder\src\ConfigurationBinder\bin\Debug\netcoreapp2.1\ConfigurationBinder.dll
+C:\Users\Thijs Koot\Documents\Projecten\ConfigurationBinder\src\ConfigurationBinder\bin\Debug\netcoreapp2.1\ConfigurationBinder.pdb
+C:\Users\Thijs Koot\Documents\Projecten\ConfigurationBinder\src\ConfigurationBinder\obj\Debug\netcoreapp2.1\ConfigurationBinder.dll
+C:\Users\Thijs Koot\Documents\Projecten\ConfigurationBinder\src\ConfigurationBinder\obj\Debug\netcoreapp2.1\ConfigurationBinder.pdb
