@@ -38,7 +38,7 @@ namespace ConfigurationBinder
                 string value = configuration[key];
                 object propertyValue;
 
-                var parser = new Parser(prop.PropertyType);
+                var parser = new Parser(prop.PropertyType, options);
                 propertyValue = parser.Parse(value);
 
                 prop.SetValue(target, propertyValue);
