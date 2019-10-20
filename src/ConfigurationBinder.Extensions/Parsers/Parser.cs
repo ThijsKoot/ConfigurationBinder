@@ -16,11 +16,11 @@ namespace ConfigurationBinder.Extensions.Parsers
             else if (type == typeof(Uri))
                 _internalParser = new UriParser();
             else if (type == typeof(Array))
-                _internalParser = new ArrayParser(_options.ArraySeparator);
+                _internalParser = new ArrayParser(_options.ArraySeparator, type);
             else
                 _internalParser = new DefaultParser();
         }
 
-        public object Parse(object value) => _internalParser.Parse(value);
+        public object Parse(string value) => _internalParser.Parse(value);
     }
 }

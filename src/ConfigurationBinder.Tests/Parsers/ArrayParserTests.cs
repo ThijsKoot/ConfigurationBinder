@@ -15,7 +15,7 @@ namespace ConfigurationBinder.Tests.Parsers
         [Test]
         public void ParseCommaSeparatedInts()
         {
-            ArrayParser parser = new ArrayParser(',');
+            var parser = new ArrayParser(',', typeof(int));
             var text = "1,2,3,4";
             var expected = new [] {1, 2, 3, 4};
 
