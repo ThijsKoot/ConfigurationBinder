@@ -1,6 +1,6 @@
-namespace ConfigurationBinder.Parsers
+namespace ConfigurationBinder.Extensions.Parsers
 {
-    internal class UriParser : IParser
+    public class DefaultParser : IParser
     {
         public object Parse(object value)
         {

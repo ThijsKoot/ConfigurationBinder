@@ -1,4 +1,4 @@
-namespace ConfigurationBinder
+namespace ConfigurationBinder.Extensions
 {
     public class ConfigurationBinderOptions
     {

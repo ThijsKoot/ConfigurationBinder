@@ -1,6 +1,6 @@
-namespace ConfigurationBinder.Parsers
+namespace ConfigurationBinder.Extensions.Parsers
 {
-    internal class ArrayParser : IParser
+    public class ArrayParser : IParser
     {
         private readonly char _arraySeparator;
         public ArrayParser(char arraySeparator)

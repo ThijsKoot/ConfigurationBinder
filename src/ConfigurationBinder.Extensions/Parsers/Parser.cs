@@ -1,7 +1,7 @@
 using System;
-using UriParser = ConfigurationBinder.Parsers.UriParser;
+using UriParser = ConfigurationBinder.Extensions.Parsers.UriParser;
 
-namespace ConfigurationBinder.Parsers
+namespace ConfigurationBinder.Extensions.Parsers
 {
     public class Parser : IParser
     {

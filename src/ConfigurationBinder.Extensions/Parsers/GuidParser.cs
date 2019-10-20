@@ -1,6 +1,6 @@
-namespace ConfigurationBinder.Parsers
+namespace ConfigurationBinder.Extensions.Parsers
 {
-    internal class GuidParser : IParser
+    public class GuidParser : IParser
     {
         public object Parse(object value)
         {
