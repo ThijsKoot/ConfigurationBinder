@@ -1,10 +1,18 @@
+using System;
+
 namespace ConfigurationBinder.Extensions.Parsers
 {
     public class DefaultParser : IParser
     {
+        private readonly Type _targetType;
+        public DefaultParser(Type targetType)
+        {
+            _targetType = targetType;
+        }
+
         public object Parse(string value)
         {
-            throw new System.NotImplementedException();
+            return Convert.ChangeType(value, _targetType);
         }
     }
 }

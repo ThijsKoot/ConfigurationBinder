@@ -18,7 +18,7 @@ namespace ConfigurationBinder.Extensions.Parsers
             else if (type == typeof(Array))
                 _internalParser = new ArrayParser(_options.ArraySeparator, type);
             else
-                _internalParser = new DefaultParser();
+                _internalParser = new DefaultParser(type);
         }
 
         public object Parse(string value) => _internalParser.Parse(value);
