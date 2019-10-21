@@ -1,4 +1,5 @@
 using System;
+using ConfigurationBinder.Extensions.Exceptions;
 
 namespace ConfigurationBinder.Extensions.Parsers
 {
@@ -12,7 +13,14 @@ namespace ConfigurationBinder.Extensions.Parsers
 
         public object Parse(string value)
         {
-            return Convert.ChangeType(value, _targetType);
+            try
+            {
+                return Convert.ChangeType(value, _targetType);
+            }
+            catch (FormatException ex)
+            {
+                throw new ParsingException(value, _targetType, ex);
+            }
         }
     }
 }

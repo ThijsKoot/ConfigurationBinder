@@ -39,7 +39,6 @@ namespace ConfigurationBinder.Tests.Parsers
             var input = "1,abc,3,4";
             var targetType = typeof(int[]);
 
-            
             var ex = Assert.Throws<ParsingException>(() => parser.Parse(input));
             
             Assert.That(ex.Input, Is.EqualTo(input));
