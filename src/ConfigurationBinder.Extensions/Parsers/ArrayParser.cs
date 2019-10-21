@@ -26,7 +26,9 @@ namespace ConfigurationBinder.Extensions.Parsers
             var splitValues = value.Split(_separator);
             try
             {
-                return splitValues.Select(x => Convert.ChangeType(x, _targetType)).ToArray();
+                return splitValues
+                    .Select(x => Convert.ChangeType(x, _targetType))
+                    .ToArray();
             }
             catch (FormatException ex)
             {
