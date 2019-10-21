@@ -28,9 +28,9 @@ namespace ConfigurationBinder.Extensions.Parsers
             {
                 return splitValues.Select(x => Convert.ChangeType(x, _targetType)).ToArray();
             }
-            catch (FormatException)
+            catch (FormatException ex)
             {
-                throw new ParsingException(value, typeof(int).MakeArrayType());
+                throw new ParsingException(value, typeof(int).MakeArrayType(), ex);
             }
         }
     }

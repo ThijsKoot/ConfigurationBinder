@@ -11,9 +11,9 @@ namespace ConfigurationBinder.Extensions.Parsers
             {
                 return new Uri(value);
             }
-            catch (UriFormatException)
+            catch (UriFormatException ex)
             {
-                throw new ParsingException(value, typeof(Uri));
+                throw new ParsingException(value, typeof(Uri), ex);
             }
         }
     }
