@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using ConfigurationBinder.Extensions.Exceptions;
 
 namespace ConfigurationBinder.Extensions.Parsers
 {
@@ -23,8 +24,14 @@ namespace ConfigurationBinder.Extensions.Parsers
         public object Parse(string value)
         {
             var splitValues = value.Split(_separator);
-
-            return splitValues.Select(x => Convert.ChangeType(x, _targetType));
+            try
+            {
+                return splitValues.Select(x => Convert.ChangeType(x, _targetType)).ToArray();
+            }
+            catch (FormatException)
+            {
+                throw new ParsingException(value, typeof(int).MakeArrayType());
+            }
         }
     }
 }
