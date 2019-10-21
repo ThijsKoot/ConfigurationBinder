@@ -17,6 +17,8 @@ namespace ConfigurationBinder.Extensions.Parsers
                 _internalParser = new UriParser();
             else if (type == typeof(Array))
                 _internalParser = new ArrayParser(_options.ArraySeparator, type);
+            else if (type.BaseType == typeof(Enum))
+                _internalParser = new EnumParser(type);
             else
                 _internalParser = new DefaultParser(type);
         }
