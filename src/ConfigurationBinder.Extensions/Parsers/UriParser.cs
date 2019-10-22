@@ -9,7 +9,8 @@ namespace ConfigurationBinder.Extensions.Parsers
         {   
             try
             {
-                return new Uri(value);
+                // Future addition for settings: UriKind RelativeOrAbsolute or Absolute
+                return new Uri(value, UriKind.RelativeOrAbsolute);
             }
             catch (UriFormatException ex)
             {
