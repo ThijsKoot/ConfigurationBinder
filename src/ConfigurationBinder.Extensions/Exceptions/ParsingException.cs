@@ -4,13 +4,8 @@ namespace ConfigurationBinder.Extensions.Exceptions
 {
     public class ParsingException : Exception
     {
-        public ParsingException(string input, Type targetType)
-            : base(GetMessage(input, targetType))
-        { 
-            Input = input;
-            TargetType = targetType;
-        }
-
+        public ParsingException(string input, Type targetType) : this(input, targetType, null) { }
+        
         public ParsingException(string input, Type targetType, Exception innerException) 
             : base(GetMessage(input, targetType), innerException)
         { 
