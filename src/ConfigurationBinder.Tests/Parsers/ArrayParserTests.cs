@@ -15,7 +15,7 @@ namespace ConfigurationBinder.Tests.Parsers
         {
             var parser = new ArrayParser(',', typeof(int));
             var input = "1,2,3,4";
-            var expected = new[] { 1, 2, 3, 4 };
+            int[] expected = { 1, 2, 3, 4 };
 
             var result = parser.Parse(input);
 
@@ -27,7 +27,7 @@ namespace ConfigurationBinder.Tests.Parsers
         {
             var parser = new ArrayParser(',', typeof(decimal));
             var input = "1.2, 3.4, 4.893";
-            var expected = new decimal[] { 1.2m, 3.4m, 4.893m };
+            decimal[] expected = { 1.2m, 3.4m, 4.893m };
 
             var result = parser.Parse(input);
 
@@ -68,7 +68,7 @@ namespace ConfigurationBinder.Tests.Parsers
         public void ParseCommaSeparatedGuidArray()
         {
             var parser = new ArrayParser(',', typeof(Guid));
-            var guids = new[] 
+            string[] guids = 
             { 
                 "af8cecf7-45ab-4666-9427-cfbd3ab34bb9", 
                 "724f5817-7f9a-4219-9fbe-e83621e4a733", 
@@ -76,6 +76,7 @@ namespace ConfigurationBinder.Tests.Parsers
             };
 
             var input = string.Join(",", guids);
+            
             var expected = guids.Select(x => Guid.Parse(x)).ToArray();
 
             Assert.AreEqual(parser.Parse(input), expected);
