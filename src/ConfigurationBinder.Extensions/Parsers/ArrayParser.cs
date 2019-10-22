@@ -18,7 +18,7 @@ namespace ConfigurationBinder.Extensions.Parsers
 
         public object Parse(string value)
         {
-            var parser = ParserFactory.GetParser(_targetType);
+            var parser = ParserFactory.CreateParser(_targetType);
             
             try
             {

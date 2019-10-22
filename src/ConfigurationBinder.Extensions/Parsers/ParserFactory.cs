@@ -20,7 +20,7 @@ namespace ConfigurationBinder.Extensions.Parsers
                 return new DefaultParser(targetType);
         }
 
-        public static IParser GetParser(Type targetType) => 
+        public static IParser CreateParser(Type targetType) => 
             ParserFactory.CreateParser(targetType, ConfigurationBinderOptions.Default);
         
     }
