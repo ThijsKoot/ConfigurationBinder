@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using ConfigurationBinder.Extensions.Parsers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Linq;
 
 namespace ConfigurationBinder.Extensions
 {
@@ -40,11 +41,15 @@ namespace ConfigurationBinder.Extensions
             foreach (var prop in type.GetProperties())
             {
                 var key = $"{type.Name}.{prop.Name}";
-                string value = configuration[key];
-                object propertyValue;
 
-                var parser = new Parser(prop.PropertyType, options);
-                propertyValue = parser.Parse(value);
+                string value = configuration
+                    .AsEnumerable()
+                    .FirstOrDefault(kv => kv.Key.Equals(key, StringComparison.CurrentCultureIgnoreCase))
+                    .Value;
+
+                var parser = ParserFactory.CreateParser(prop.PropertyType, options);
+
+                object propertyValue = parser.Parse(value);
 
                 prop.SetValue(target, propertyValue);
             }

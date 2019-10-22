@@ -4,7 +4,7 @@ namespace ConfigurationBinder.Extensions.Parsers
 {
     public static class ParserFactory
     {
-        public static IParser GetParser(Type targetType, ConfigurationBinderOptions options)
+        public static IParser CreateParser(Type targetType, ConfigurationBinderOptions options)
         {
             if(targetType == typeof(Guid))
                 return new GuidParser();
@@ -21,7 +21,7 @@ namespace ConfigurationBinder.Extensions.Parsers
         }
 
         public static IParser GetParser(Type targetType) => 
-            ParserFactory.GetParser(targetType, ConfigurationBinderOptions.Default);
+            ParserFactory.CreateParser(targetType, ConfigurationBinderOptions.Default);
         
     }
 }
