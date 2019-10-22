@@ -30,16 +30,6 @@ namespace ConfigurationBinder.Tests.Parsers
         }
 
         [Test]
-        public void ParseRelativeUri()
-        {
-            var parser = new UriParser();
-            var input = "/foo/bar";
-            var expected = new Uri(input, UriKind.Relative);
-
-            Assert.AreEqual(parser.Parse(input), expected);
-        }
-
-        [Test]
         public void ThrowOnMalformedInput()
         {
             var parser = new UriParser();

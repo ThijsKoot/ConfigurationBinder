@@ -10,7 +10,8 @@ namespace ConfigurationBinder.Extensions.Parsers
             try
             {
                 // Future addition for settings: UriKind RelativeOrAbsolute or Absolute
-                return new Uri(value, UriKind.RelativeOrAbsolute);
+                // RelativeOrAbsolute means that malformed absolute uris don't throw exceptions though
+                return new Uri(value, UriKind.Absolute);
             }
             catch (UriFormatException ex)
             {
