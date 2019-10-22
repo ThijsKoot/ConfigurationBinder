@@ -6,23 +6,9 @@ namespace ConfigurationBinder.Extensions.Parsers
     public class Parser : IParser
     {
         private readonly IParser _internalParser;
-        private readonly ConfigurationBinderOptions _options;
         public Parser(Type type, ConfigurationBinderOptions options)
         {
-            _options = options;
-
-            if(type == typeof(Guid))
-                _internalParser = new GuidParser();
-            else if (type == typeof(Uri))
-                _internalParser = new UriParser();
-            else if (type == typeof(Array))
-                _internalParser = new ArrayParser(_options.ArraySeparator, type);
-            else if (type.BaseType == typeof(Enum))
-                _internalParser = new EnumParser(type);
-            else if (type == typeof(DateTime))
-                _internalParser = new DateTimeParser();
-            else
-                _internalParser = new DefaultParser(type);
+            _internalParser = ParserFactory.GetParser(type, options);
         }
 
         public object Parse(string value) => _internalParser.Parse(value);

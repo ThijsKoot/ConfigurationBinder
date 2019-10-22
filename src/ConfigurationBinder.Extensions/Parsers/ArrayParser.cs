@@ -12,25 +12,22 @@ namespace ConfigurationBinder.Extensions.Parsers
 
         public ArrayParser(char separator, Type targetType)
         {
-            if(targetType == null) throw new ArgumentNullException(nameof(targetType));
-
-            if(targetType.BaseType != typeof(ValueType))
-                throw new ArgumentException($"ArrayParser cannot be instantiated for type {targetType}");
-            
             _separator = separator;
             _targetType = targetType;
         }
 
         public object Parse(string value)
         {
-            var splitValues = value.Split(_separator);
+            var parser = ParserFactory.GetParser(_targetType);
+            
             try
             {
-                return splitValues
-                    .Select(x => Convert.ChangeType(x, _targetType))
+                return value
+                    .Split(_separator)
+                    .Select(x => parser.Parse(x))
                     .ToArray();
             }
-            catch (FormatException ex)
+            catch (ParsingException ex)
             {
                 throw new ParsingException(value, _targetType.MakeArrayType(), ex);
             }
