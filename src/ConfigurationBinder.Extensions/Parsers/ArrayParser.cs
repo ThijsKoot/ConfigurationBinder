@@ -32,7 +32,7 @@ namespace ConfigurationBinder.Extensions.Parsers
             }
             catch (FormatException ex)
             {
-                throw new ParsingException(value, typeof(int).MakeArrayType(), ex);
+                throw new ParsingException(value, _targetType.MakeArrayType(), ex);
             }
         }
     }
