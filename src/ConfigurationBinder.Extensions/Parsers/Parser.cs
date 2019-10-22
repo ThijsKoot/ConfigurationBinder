@@ -19,6 +19,8 @@ namespace ConfigurationBinder.Extensions.Parsers
                 _internalParser = new ArrayParser(_options.ArraySeparator, type);
             else if (type.BaseType == typeof(Enum))
                 _internalParser = new EnumParser(type);
+            else if (type == typeof(DateTime))
+                _internalParser = new DateTimeParser();
             else
                 _internalParser = new DefaultParser(type);
         }
