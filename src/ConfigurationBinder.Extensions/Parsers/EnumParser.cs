@@ -1,19 +1,23 @@
 using System;
+using ConfigurationBinder.Extensions.Exceptions;
 
 namespace ConfigurationBinder.Extensions.Parsers
 {
     public class EnumParser : IParser
     {
-        private readonly Type type;
+        private readonly Type _targetType;
 
-        public EnumParser(Type type)
+        public EnumParser(Type targetType)
         {
-            this.type = type;
+            this._targetType = targetType;
         }
 
         public object Parse(string value)
         {
-            throw new NotImplementedException();
+            if(Enum.TryParse(_targetType, value, true, out object result))
+                return result;
+            
+            throw new ParsingException(value, _targetType);
         }
     }
 }
