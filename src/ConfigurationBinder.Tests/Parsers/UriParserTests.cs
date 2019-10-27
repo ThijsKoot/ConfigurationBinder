@@ -1,7 +1,7 @@
 using System;
-using ConfigurationBinder.Extensions.Exceptions;
+using ConfigurationBinder.Exceptions;
 using NUnit.Framework;
-using UriParser = ConfigurationBinder.Extensions.Parsers.UriParser;
+using UriParser = ConfigurationBinder.Parsers.UriParser;
 
 namespace ConfigurationBinder.Tests.Parsers
 {

@@ -1,7 +1,7 @@
 using System;
-using ConfigurationBinder.Extensions.Exceptions;
+using ConfigurationBinder.Exceptions;
 
-namespace ConfigurationBinder.Extensions.Parsers
+namespace ConfigurationBinder.Parsers
 {
     public class DateTimeParser : IParser
     {

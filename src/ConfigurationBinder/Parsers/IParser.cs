@@ -1,4 +1,4 @@
-namespace ConfigurationBinder.Extensions
+namespace ConfigurationBinder.Parsers
 {
     public interface IParser
     {

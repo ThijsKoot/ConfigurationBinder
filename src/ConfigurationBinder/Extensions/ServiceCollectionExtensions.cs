@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
-using ConfigurationBinder.Extensions.Parsers;
+using ConfigurationBinder.Parsers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System.Linq;
+using System.Reflection;
 
 namespace ConfigurationBinder.Extensions
 {
@@ -28,26 +30,9 @@ namespace ConfigurationBinder.Extensions
         /// <param name="options">Configuration Binder options</param>
         /// <typeparam name="TConfig">Target type to bind settings to</typeparam>
         public static void AddConfiguration<TConfig>(this IServiceCollection services, ConfigurationBinderOptions options)
-            where TConfig : class, new() => 
+            where TConfig : class, new() =>
             services.AddOptions<TConfig>()
                 .Configure<IConfiguration>((target, configuration) =>
-                    BindSettings(configuration, target, options));
-
-        public static void BindSettings(IConfiguration configuration, object target, ConfigurationBinderOptions options)
-        {
-            var type = target.GetType();
-
-            foreach (var prop in type.GetProperties())
-            {
-                var key = $"{type.Name}.{prop.Name}";
-                string value = configuration[key];
-                object propertyValue;
-
-                var parser = new Parser(prop.PropertyType, options);
-                propertyValue = parser.Parse(value);
-
-                prop.SetValue(target, propertyValue);
-            }
-        }
+                    configuration.BindSettings(target, options));
     }
 }

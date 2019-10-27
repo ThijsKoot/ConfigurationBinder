@@ -1,5 +1,5 @@
-using ConfigurationBinder.Extensions.Exceptions;
-using ConfigurationBinder.Extensions.Parsers;
+using ConfigurationBinder.Exceptions;
+using ConfigurationBinder.Parsers;
 using NUnit.Framework;
 using System;
 
