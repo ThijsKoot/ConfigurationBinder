@@ -4,6 +4,7 @@ using ConfigurationBinder.Extensions.Exceptions;
 using System;
 using System.Linq;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace ConfigurationBinder.Tests.Parsers
 {
@@ -11,11 +12,30 @@ namespace ConfigurationBinder.Tests.Parsers
     public class ArrayParserTests
     {
         [Test]
+        public void GetCorrectElementTypeForArray()
+        {
+            var parser = new ArrayParser(',', typeof(int[]));
+            var expected = typeof(int);
+
+            Assert.AreEqual(expected, parser.ElementType);
+        }
+
+        [Test]
+        public void GetCorrectElementTypeForIEnumerable()
+        {
+            var parser = new ArrayParser(',', typeof(IEnumerable<int>));
+            var expected = typeof(int);
+
+            Assert.AreEqual(expected, parser.ElementType);
+        }
+
+        [Test]
         public void ParseCommaSeparatedIntArray()
         {
-            var parser = new ArrayParser(',', typeof(int));
-            var input = "1,2,3,4";
             int[] expected = { 1, 2, 3, 4 };
+
+            var parser = new ArrayParser(',', typeof(int[]));
+            var input = "1,2,3,4";
 
             var result = parser.Parse(input);
 
@@ -25,7 +45,7 @@ namespace ConfigurationBinder.Tests.Parsers
         [Test]
         public void ParseCommaSeparatedDecimalArray()
         {
-            var parser = new ArrayParser(',', typeof(decimal));
+            var parser = new ArrayParser(',', typeof(decimal[]));
             var input = "1.2, 3.4, 4.893";
             decimal[] expected = { 1.2m, 3.4m, 4.893m };
 
@@ -37,7 +57,7 @@ namespace ConfigurationBinder.Tests.Parsers
         [Test]
         public void ThrowParsingExceptionOnMixedInput()
         {
-            var parser = new ArrayParser(',', typeof(int));
+            var parser = new ArrayParser(',', typeof(int[]));
 
             var input = "1,abc,3,4";
             var targetType = typeof(int[]);
@@ -51,7 +71,7 @@ namespace ConfigurationBinder.Tests.Parsers
         [Test]
         public void ThrowCorrectInnerException()
         {
-            var parser = new ArrayParser(',', typeof(int));
+            var parser = new ArrayParser(',', typeof(int[]));
 
             var input = "1,abc,3,4";
             var targetType = typeof(int[]);
@@ -67,7 +87,7 @@ namespace ConfigurationBinder.Tests.Parsers
         [Test]
         public void ParseCommaSeparatedGuidArray()
         {
-            var parser = new ArrayParser(',', typeof(Guid));
+            var parser = new ArrayParser(',', typeof(Guid[]));
             string[] guids = 
             { 
                 "af8cecf7-45ab-4666-9427-cfbd3ab34bb9", 
