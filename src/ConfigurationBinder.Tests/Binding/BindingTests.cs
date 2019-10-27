@@ -54,12 +54,12 @@ namespace ConfigurationBinder.Tests.Binding
         {
             var obj = new ConfigurationObject();
             
-            BindSettings(_configuration, obj, ConfigurationBinderOptions.Default);
+            Assert.DoesNotThrow(() => _configuration.BindSettings(obj, ConfigurationBinderOptions.Default));
             
             Assert.AreEqual(_expected.ArrayOfInts, obj.ArrayOfInts);
             Assert.AreEqual(_expected.CustomValuesEnum, obj.CustomValuesEnum );
             Assert.AreEqual(_expected.DateTime, obj.DateTime);
-            Assert.AreEqual( _expected.DefaultValuesEnum, obj.DefaultValuesEnum);
+            Assert.AreEqual(_expected.DefaultValuesEnum, obj.DefaultValuesEnum);
             Assert.AreEqual(_expected.Guid, obj.Guid);
             Assert.AreEqual(_expected.IEnumerableOfUris, obj.IEnumerableOfUris);
             Assert.AreEqual(_expected.Int, obj.Int);

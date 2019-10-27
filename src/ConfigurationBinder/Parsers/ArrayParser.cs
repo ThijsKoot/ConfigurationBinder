@@ -22,14 +22,14 @@ namespace ConfigurationBinder.Parsers
             _targetType = targetType;
         }
 
-        public Type ElementType =>  _targetType.IsArray 
-                ? _targetType.GetElementType() 
+        public Type ElementType => _targetType.IsArray
+                ? _targetType.GetElementType()
                 : _targetType.GetGenericArguments()[0];
 
         public Type TargetType => _targetType;
 
         public object Parse(string value)
-        {                
+        {
             var parser = ParserFactory.CreateParser(ElementType);
 
             try

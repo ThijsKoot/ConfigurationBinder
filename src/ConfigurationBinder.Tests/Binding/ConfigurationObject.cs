@@ -11,6 +11,7 @@ namespace ConfigurationBinder.Tests.Binding
         public Guid Guid { get; set; }
         public int[] ArrayOfInts { get; set; }
         public IEnumerable<Uri> IEnumerableOfUris { get; set; }
+        public List<int> ListOfInts { get; set; }
         public CustomValuesEnum CustomValuesEnum { get; set; }
         public DefaultValuesEnum DefaultValuesEnum { get; set; }
         public DateTime DateTime { get; set; }
