@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ConfigurationBinder.Extensions\ConfigurationBinder.Extensions.csproj" />
+    <ProjectReference Include="..\ConfigurationBinder\ConfigurationBinder.csproj" />
   </ItemGroup>
 
 </Project>

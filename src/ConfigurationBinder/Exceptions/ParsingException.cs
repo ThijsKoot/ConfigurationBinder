@@ -1,6 +1,6 @@
 using System;
 
-namespace ConfigurationBinder.Extensions.Exceptions
+namespace ConfigurationBinder.Exceptions
 {
     public class ParsingException : Exception
     {

@@ -1,6 +1,6 @@
 using NUnit.Framework;
-using ConfigurationBinder.Extensions.Parsers;
-using ConfigurationBinder.Extensions.Exceptions;
+using ConfigurationBinder.Parsers;
+using ConfigurationBinder.Exceptions;
 using System;
 using System.Linq;
 using System.Collections;

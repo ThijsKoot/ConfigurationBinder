@@ -1,5 +1,5 @@
 using ConfigurationBinder.Extensions;
-using ConfigurationBinder.Extensions.Parsers;
+using ConfigurationBinder.Parsers;
 using NUnit.Framework;
 
 namespace ConfigurationBinder.Tests.Parsers

@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using ConfigurationBinder.Extensions.Parsers;
+using ConfigurationBinder.Parsers;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Linq;
 using System.Reflection;
-using ConfigurationBinder.Extensions.Extensions;
 
 namespace ConfigurationBinder.Extensions
 {

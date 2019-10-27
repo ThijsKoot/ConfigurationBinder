@@ -1,6 +1,6 @@
 using System;
 
-namespace ConfigurationBinder.Extensions
+namespace ConfigurationBinder
 {
     public class ConfigurationBinderOptions
     {

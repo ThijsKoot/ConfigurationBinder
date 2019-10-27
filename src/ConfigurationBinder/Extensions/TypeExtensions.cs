@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Linq;
 
-namespace ConfigurationBinder.Extensions.Extensions
+namespace ConfigurationBinder.Extensions
 {
     public static class TypeExtensions 
     {

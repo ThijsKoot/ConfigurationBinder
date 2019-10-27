@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using ConfigurationBinder.Extensions.Exceptions;
+using ConfigurationBinder.Exceptions;
 
-namespace ConfigurationBinder.Extensions.Parsers
+namespace ConfigurationBinder.Parsers
 {
     public class ArrayParser : IParser
     {

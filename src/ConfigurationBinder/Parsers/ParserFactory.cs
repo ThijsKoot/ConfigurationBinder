@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using ConfigurationBinder.Extensions.Extensions;
+using ConfigurationBinder.Extensions;
 
-namespace ConfigurationBinder.Extensions.Parsers
+namespace ConfigurationBinder.Parsers
 {
     public static class ParserFactory
     {
