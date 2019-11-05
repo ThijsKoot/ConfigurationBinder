@@ -13,7 +13,6 @@ artifacts:
 deploy:
 - provider: NuGet
   name: dev
-  server: https://api.nuget.org/v3/index.json
   api_key:
     secure: XQrKfAe8DFIPxzhmnicsfJ44ASF85j5ZWB1n00UI4Nyy4hWEc+iyEoDYWqOxe8sh
   skip_symbols: true
