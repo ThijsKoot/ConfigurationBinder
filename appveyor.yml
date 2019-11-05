@@ -1,9 +1,9 @@
 version: 1.0.{build}
 skip_tags: true
 image: Visual Studio 2019
-build:
-  project: src/ConfigurationBinder.sln
-  verbosity: minimal
+
+build_script:
+- ps: .\Build.ps1
 
 test: on
 
