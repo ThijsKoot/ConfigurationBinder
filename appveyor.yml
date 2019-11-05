@@ -1,0 +1,21 @@
+version: 1.0.{build}
+skip_tags: true
+image: Visual Studio 2019
+build:
+  project: src/ConfigurationBinder.sln
+  verbosity: minimal
+
+test: on
+
+artifacts:
+- path: .\src\ConfigurationBinder\artifacts\**\*.nupkg
+  name: NuGet
+deploy:
+- provider: NuGet
+  name: dev
+  server: https://api.nuget.org/v3/index.json
+  api_key:
+    secure: XQrKfAe8DFIPxzhmnicsfJ44ASF85j5ZWB1n00UI4Nyy4hWEc+iyEoDYWqOxe8sh
+  skip_symbols: true
+  on:
+    branch: dev
