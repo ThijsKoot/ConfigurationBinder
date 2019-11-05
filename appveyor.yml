@@ -17,4 +17,4 @@ deploy:
     secure: XQrKfAe8DFIPxzhmnicsfJ44ASF85j5ZWB1n00UI4Nyy4hWEc+iyEoDYWqOxe8sh
   skip_symbols: true
   on:
-    branch: dev
+    branch: master

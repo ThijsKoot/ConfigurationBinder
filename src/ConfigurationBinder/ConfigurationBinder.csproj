@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netcoreapp2.2</TargetFramework>
         <PackageId>ConfigurationBinder</PackageId>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <Authors>Thijs Koot</Authors>
         <Company>thijskoot.nl</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
