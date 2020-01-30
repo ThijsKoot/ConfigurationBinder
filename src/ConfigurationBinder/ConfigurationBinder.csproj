@@ -7,6 +7,11 @@
         <Authors>Thijs Koot</Authors>
         <Company>thijskoot.nl</Company>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageDescription>
+            Extensions methods to deal with the lack of nested objects in Azure Functions v2 Settings. 
+            This extension allows you to bind settings to configuration-classes during service registration.
+        </PackageDescription>
+        <RepositoryUrl>https://github.com/thijskoot/configurationbinder</RepositoryUrl>
     </PropertyGroup>
 
     <ItemGroup>
