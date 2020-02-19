@@ -36,7 +36,7 @@ echo "build: Build version suffix is $buildSuffix"
 
 exec { & dotnet build ConfigurationBinder.sln -c Release --version-suffix=$buildSuffix }
 
-Push-Location -Path .\ConfigurationBinder.Tests
+Push-Location -Path .\test\ConfigurationBinder.Tests
 
 try {
     exec { & dotnet test -c Release --no-build --no-restore }
@@ -47,4 +47,4 @@ try {
 Pop-Location
 
 
-exec { & dotnet pack .\ConfigurationBinder\ConfigurationBinder.csproj -c Release -o .\artifacts --include-symbols --no-build $versionSuffix }
+exec { & dotnet pack .\src\ConfigurationBinder\ConfigurationBinder.csproj -c Release -o .\artifacts --include-symbols --no-build $versionSuffix }
