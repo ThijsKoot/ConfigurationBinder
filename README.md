@@ -1,4 +1,8 @@
 # ConfigurationBinder
+![AppVeyor](https://img.shields.io/appveyor/ci/ThijsKoot/configurationbinder?label=master)
+![Nuget](https://img.shields.io/nuget/dt/configurationbinder)
+![AppVeyor branch](https://img.shields.io/appveyor/ci/thijskoot/configurationbinder/dev?label=dev)
+
 Extensions methods to deal with the lack of nested objects in Azure Functions v2 Settings. This extension allows you to bind settings to configuration-classes during service registration. 
 
 ## Usage

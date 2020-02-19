@@ -1,0 +1,20 @@
+version: 1.0.{build}
+skip_tags: true
+image: Visual Studio 2019
+
+build_script:
+- ps: .\Build.ps1
+
+test: on
+
+artifacts:
+- path: .\artifacts\**\*.nupkg
+  name: NuGet
+deploy:
+- provider: NuGet
+  name: dev
+  api_key:
+    secure: XQrKfAe8DFIPxzhmnicsfJ44ASF85j5ZWB1n00UI4Nyy4hWEc+iyEoDYWqOxe8sh
+  skip_symbols: true
+  on:
+    branch: master

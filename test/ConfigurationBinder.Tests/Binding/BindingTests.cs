@@ -50,22 +50,45 @@ namespace ConfigurationBinder.Tests.Binding
         }
 
         [Test]
+        public void BindWithCustomKeySeparator()
+        {
+            var target = new ConfigurationObject();
+            var customOptions = new ConfigurationBinderOptions { KeySeparator = "_" };
+
+            var data = new Dictionary<string, string>
+            {
+                {"configurationObject_string", "abc"} 
+            };
+
+            var expectedValue = "abc";
+
+            var configuration = new ConfigurationBuilder()
+                .AddInMemoryCollection(data)
+                .Build();
+
+            Assert.DoesNotThrow(() => configuration.BindSettings(target, customOptions));
+
+            Assert.AreEqual(expectedValue, target.String);
+        }
+
+        [Test]
         public void BindToObject()
         {
-            var obj = new ConfigurationObject();
-            
-            Assert.DoesNotThrow(() => _configuration.BindSettings(obj, ConfigurationBinderOptions.Default));
-            
-            Assert.AreEqual(_expected.ArrayOfInts, obj.ArrayOfInts);
-            Assert.AreEqual(_expected.CustomValuesEnum, obj.CustomValuesEnum );
-            Assert.AreEqual(_expected.DateTime, obj.DateTime);
-            Assert.AreEqual(_expected.DefaultValuesEnum, obj.DefaultValuesEnum);
-            Assert.AreEqual(_expected.Guid, obj.Guid);
-            Assert.AreEqual(_expected.IEnumerableOfUris, obj.IEnumerableOfUris);
-            Assert.AreEqual(_expected.Int, obj.Int);
-            Assert.AreEqual(_expected.NonSettableInt, obj.NonSettableInt);
-            Assert.AreEqual(_expected.PrivateSettableInt, obj.PrivateSettableInt);
-            Assert.AreEqual(_expected.Uri, obj.Uri);
+            var target = new ConfigurationObject();
+            var options = ConfigurationBinderOptions.Default;
+
+            Assert.DoesNotThrow(() => _configuration.BindSettings(target, options));
+
+            Assert.AreEqual(_expected.ArrayOfInts, target.ArrayOfInts);
+            Assert.AreEqual(_expected.CustomValuesEnum, target.CustomValuesEnum);
+            Assert.AreEqual(_expected.DateTime, target.DateTime);
+            Assert.AreEqual(_expected.DefaultValuesEnum, target.DefaultValuesEnum);
+            Assert.AreEqual(_expected.Guid, target.Guid);
+            Assert.AreEqual(_expected.IEnumerableOfUris, target.IEnumerableOfUris);
+            Assert.AreEqual(_expected.Int, target.Int);
+            Assert.AreEqual(_expected.NonSettableInt, target.NonSettableInt);
+            Assert.AreEqual(_expected.PrivateSettableInt, target.PrivateSettableInt);
+            Assert.AreEqual(_expected.Uri, target.Uri);
         }
     }
 }

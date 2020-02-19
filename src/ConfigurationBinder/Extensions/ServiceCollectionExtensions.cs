@@ -18,7 +18,7 @@ namespace ConfigurationBinder.Extensions
         /// </summary>
         /// <param name="services"></param>
         /// <typeparam name="TConfig">Target type to bind settings to</typeparam>
-        public static void AddConfiguration<TConfig>(this IServiceCollection services)
+        public static IServiceCollection AddConfiguration<TConfig>(this IServiceCollection services)
             where TConfig : class, new() =>
                 services.AddConfiguration<TConfig>(ConfigurationBinderOptions.Default);
 
@@ -29,10 +29,17 @@ namespace ConfigurationBinder.Extensions
         /// <param name="services">Service Collection</param>
         /// <param name="options">Configuration Binder options</param>
         /// <typeparam name="TConfig">Target type to bind settings to</typeparam>
-        public static void AddConfiguration<TConfig>(this IServiceCollection services, ConfigurationBinderOptions options)
-            where TConfig : class, new() =>
+        public static IServiceCollection AddConfiguration<TConfig>(
+            this IServiceCollection services, 
+            ConfigurationBinderOptions options)
+            where TConfig : class, new()
+        {
             services.AddOptions<TConfig>()
                 .Configure<IConfiguration>((target, configuration) =>
                     configuration.BindSettings(target, options));
+
+            return services;
+        }
+
     }
 }
