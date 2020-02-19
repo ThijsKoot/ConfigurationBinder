@@ -22,7 +22,7 @@ function Exec
     }
 }
 
-if(Test-Path .\src\ConfigurationBinder\artifacts) { Remove-Item .\src\ConfigurationBinder\artifacts -Force -Recurse }
+if(Test-Path .\artifacts) { Remove-Item .\artifacts -Force -Recurse }
 
 $branch = @{ $true = $env:APPVEYOR_REPO_BRANCH; $false = $(git symbolic-ref --short -q HEAD) }[$env:APPVEYOR_REPO_BRANCH -ne $NULL];
 $revision = @{ $true = "{0:00000}" -f [convert]::ToInt32("0" + $env:APPVEYOR_BUILD_NUMBER, 10); $false = "local" }[$env:APPVEYOR_BUILD_NUMBER -ne $NULL];
@@ -34,9 +34,9 @@ $versionSuffix = @{ $true = "--version-suffix=$($suffix)"; $false = ""}[$suffix 
 echo "build: Package version suffix is $suffix"
 echo "build: Build version suffix is $buildSuffix" 
 
-exec { & dotnet build src\ConfigurationBinder.sln -c Release --version-suffix=$buildSuffix }
+exec { & dotnet build ConfigurationBinder.sln -c Release --version-suffix=$buildSuffix }
 
-Push-Location -Path .\src\ConfigurationBinder.Tests
+Push-Location -Path .\ConfigurationBinder.Tests
 
 try {
     exec { & dotnet test -c Release --no-build --no-restore }
@@ -47,4 +47,4 @@ try {
 Pop-Location
 
 
-exec { & dotnet pack .\src\ConfigurationBinder\ConfigurationBinder.csproj -c Release -o .\artifacts --include-symbols --no-build $versionSuffix }
+exec { & dotnet pack .\ConfigurationBinder\ConfigurationBinder.csproj -c Release -o .\artifacts --include-symbols --no-build $versionSuffix }

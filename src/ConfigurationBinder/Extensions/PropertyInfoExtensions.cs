@@ -11,13 +11,13 @@ namespace ConfigurationBinder.Extensions
         /// <param name="prop">PropertyInfo to set</param>
         /// <param name="target">Target to set property value on</param>
         /// <param name="value">Value to set</param>
-        /// <remarks>Regular SetValue-assignment doesn't work for arrays of value types</remarks>
+        /// <remarks>Regular SetValue-assignment doesn't work for arrays of valuetypes</remarks>
         public static void Assign(this PropertyInfo prop, object target, object value)
         {
             var propertyType = prop.PropertyType;
 
             // Check if array assignment is needed. It needs a bit more voodoo
-            // to cope with assigning an array of object to an array of valuetypes
+            // to cope with assigning an array of objects to an array of valuetypes
             if (propertyType.IsEnumerable()
                 && propertyType != typeof(string)
                 && value is Array array)

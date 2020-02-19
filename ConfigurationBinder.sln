@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationBinder.Tests", "ConfigurationBinder.Tests\ConfigurationBinder.Tests.csproj", "{B6C21AD1-382C-41D4-8F79-C5FFD2E358A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationBinder.Tests", "test\ConfigurationBinder.Tests\ConfigurationBinder.Tests.csproj", "{B6C21AD1-382C-41D4-8F79-C5FFD2E358A4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationBinder", "ConfigurationBinder\ConfigurationBinder.csproj", "{7861294C-DBD2-4384-804D-ECFE7736E52E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationBinder", "src\ConfigurationBinder\ConfigurationBinder.csproj", "{7861294C-DBD2-4384-804D-ECFE7736E52E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
